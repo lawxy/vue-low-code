@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div class="flex">
+  <div id="container">
     <Left />
     <Right />
   </div>
@@ -15,8 +15,10 @@
     padding: 0;
     margin: 0;
   }
-  .flex {
+  #container {
     display: flex;
+    align-items: flex-start;
+    background-color: rgb(245, 245, 245);
     height: 100vh;
   }
 </style>

@@ -1,40 +1,23 @@
 <template>
-  <!-- <div class="itxst">
-    <div>
-      <draggable
-        :list="state.list"
-        ghost-class="ghost"
-        chosen-class="chosenClass"
-        animation="300"
-        @start="onStart"
-        @end="onEnd"
-      >
-        <template #item="{ element }">
-          <div class="item">
-            {{ element.name }}
-          </div>
-        </template>
-      </draggable>
-    </div>
-    <div>{{ state.list }}</div>
-  </div> -->
-  <draggable 
-    :list="widgetList" 
-    ghost-class="ghost" 
-    itemKey="id" 
-    :force-fallback="true" 
-    group="list" 
-    :fallback-class="true"
-    :fallback-on-body="true" 
-    class="drag-content" 
-    @end="onEnd"
-  >
-    <template #item="{ element }">
-      <div class="item move">
-        <label class="move">{{ element.name }}</label>
-      </div>
-    </template>
-  </draggable>
+  <div id="canvas-wrap">
+    <draggable 
+      :list="widgetList" 
+      ghost-class="ghost" 
+      itemKey="id" 
+      :force-fallback="true" 
+      group="list" 
+      :fallback-class="true"
+      :fallback-on-body="true" 
+      class="canvas" 
+      @end="onEnd"
+    >
+      <template #item="{ element }">
+        <div class="item move">
+          <label class="move">{{ element.name }}</label>
+        </div>
+      </template>
+    </draggable>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, reactive } from "vue";
@@ -55,21 +38,23 @@ const onEnd = () => {
 };
 </script>
 <style scoped>
-.itxst {
-  width: 600px;
-  display: flex;
-}
-.itxst > div:nth-of-type(1) {
+#canvas-wrap {
   flex: 1;
+  margin: 0 10px;
+  height: 100%;
+  background-color: #fff;
 }
-.itxst > div:nth-of-type(2) {
-  width: 270px;
-  padding-left: 20px;
+.canvas {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 .item {
   border: solid 1px #eee;
   padding: 6px 10px;
   text-align: left;
+  width: 200px;
+  height: 50px;
 }
 
 .item:hover {
