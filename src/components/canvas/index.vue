@@ -1,20 +1,22 @@
 <template>
   <div id="canvas-wrap">
-    <draggable 
-      v-model="widgetList" 
-      class="list-group"
-      tag="transition-group" 
-      v-bind="dragOptions"
-      group="list" 
-      @start="drag = true"
-      @end="drag = false"
-    >
-      <template #item="{ element }">
-        <div class="item">
-          {{ element.name }}
-        </div>
-      </template>
-    </draggable>
+    <el-row :gutter="60">
+      <draggable 
+        v-model="widgetList" 
+        tag="transition-group" 
+        v-bind="dragOptions"
+       
+        group="list" 
+        @start="drag = true"
+        @end="onEnd"
+      >
+        <template #item="{ element }">
+          <el-col class="item" :span="8">
+            {{ element.name }}
+          </el-col>
+        </template>
+      </draggable>
+    </el-row>
   </div>
 </template>
 <script setup lang="ts">
@@ -60,21 +62,21 @@ const onEnd = () => {
   flex-wrap: wrap;
 }
 .item {
-  border: solid 1px #eee;
+  /* border: solid 1px #eee;
   padding: 6px 10px;
   text-align: left;
   width: 200px;
   height: 50px;
   cursor: move;
-  display: inline-block;
+  display: inline-block; */
 }
 
 .item:hover {
   cursor: move;
 }
-.item + .item {
+/* .item + .item {
   margin-top: 10px;
-}
+} */
 /* .ghost {
   border: solid 1px rgb(19, 41, 239);
 } */

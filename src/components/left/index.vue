@@ -9,6 +9,7 @@
       :group="{ name: 'list', pull: 'clone' }"
       :sort="false" itemKey="id"
       id="el-group"
+      @end="onEnd"
     >
       <template #item="{ element }">
         <div class="item move">
@@ -42,9 +43,12 @@
     { name: "计数器", id: 3, element: 'InputNumber' },
     { name: "单选框组", id: 4, element: 'Radio' },
   ])
-  const widgetList = reactive<itemType[]>([
- 
- ])
+
+  const onEnd = (a, b) => {
+    console.log("结束拖拽");
+    console.log(a)
+    console.log(b)
+  };
  
 </script>
 
