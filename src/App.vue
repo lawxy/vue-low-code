@@ -1,13 +1,14 @@
 <script setup lang="ts">
   import Left from '@/components/left/index.vue'
   import Canvas from '@/components/canvas/index.vue'
-  // import Right from '@/components/right/index.vue'
+  import Right from '@/components/right/index.vue'
 </script>
 
 <template>
   <div id="container">
     <Left />
     <Canvas />
+    <Right />
   </div>
 </template>
 

@@ -1,11 +1,11 @@
-import { ref, computed } from 'vue'
+import { ref, reactive, watch } from 'vue'
 import { defineStore } from 'pinia'
 import type { IBaseElement } from '@/types'
 
-export const useElementsStore = defineStore('counter', () => {
-  // 显示的组件元素
-  const formElements = ref<IBaseElement[]>([])
-  
+export const useElementsStore = defineStore('elementsStore', () => {
+  // 显示的表单元素
+  const formElements = ref<IBaseElement[]>([]);
+
   const setFormElements = (els: IBaseElement[]) => {
     formElements.value = els;
   }
@@ -13,6 +13,20 @@ export const useElementsStore = defineStore('counter', () => {
   const clearAllElements = () => {
     formElements.value = [];
   }
+  /**
+   * 当前选中的元素
+  */
+  const selectedElement = ref<IBaseElement>({});
 
-  return { formElements, setFormElements, clearAllElements }
+  const setSelectedElement = (el: IBaseElement) => {
+    selectedElement.value = el
+  }
+
+  return { 
+    formElements, 
+    setFormElements, 
+    clearAllElements,
+    selectedElement,
+    setSelectedElement
+  }
 })

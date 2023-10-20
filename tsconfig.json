@@ -1,7 +1,7 @@
 {
   "files": [],
   "compilerOptions": {
-    "types": ["vite/client", "vue", "element-plus/global"],
+    "types": ["vite/client", "vue"],
     "typeRoots": ["./types", "./node_modules/@types"]
   },
   "references": [
@@ -13,10 +13,10 @@
     }
   ],
   "paths": {
-    "@/*": ["src/*"]
+    "@/*": ["/src/*"]
   },
   
-  "include": [
-    "src/**/*",
-  ],
+  // "include": [
+  //   "src/**/*",
+  // ],
 }
