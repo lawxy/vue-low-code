@@ -22,13 +22,14 @@ import type { IBaseElement } from "@/types";
 
 const el = ref<HTMLDivElement>();
 
+
+const { formElements, selectedElement, setSelectedElement } = useElementsStore();
 // @ts-ignore
 useDraggable(el, formElements, {
     animation: 150,
     group: 'list',
-})
 
-const { formElements, selectedElement, setSelectedElement } = useElementsStore();
+})
 
 const handleSelected = (element: IBaseElement) => {
   setSelectedElement(element)

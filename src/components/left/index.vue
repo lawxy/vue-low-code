@@ -35,6 +35,9 @@
     animation: 150,
     sort: false,
     group: { name: 'list', pull: 'clone' },
+    onEnd() {
+      console.log('end')
+    }
   })
 </script>
 
