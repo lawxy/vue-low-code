@@ -1,8 +1,10 @@
 {
   "files": [],
   "compilerOptions": {
+    "lib": ["ESNext"],
     "types": ["vite/client", "vue"],
-    "typeRoots": ["./types", "./node_modules/@types"]
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "allowJs": true
   },
   "references": [
     {

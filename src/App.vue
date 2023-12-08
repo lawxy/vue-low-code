@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import Left from '@/components/left/index.vue'
-  import Canvas from '@/components/canvas/index.vue'
-  import Right from '@/components/right/index.vue'
+  import Left from '@/views/left/index.vue'
+  import Canvas from '@/views/canvas/index.vue'
+  import Right from '@/views/right/index.vue'
 </script>
 
 <template>

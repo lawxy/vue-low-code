@@ -13,7 +13,7 @@ export interface IBaseElement {
   /**
    * 元素类型
    */
-  type?: string;
+  type: string;
   /**
    * 元素名称
    */
@@ -54,3 +54,5 @@ export interface IBaseElement {
    */
   bindField?: string;
 }
+
+export type TMenuBaseItem = Pick<IBaseElement, 'type' | 'elementName'>

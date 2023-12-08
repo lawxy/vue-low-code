@@ -1,11 +1,10 @@
 <template>
   <div id="left">
     <div :style="{height: '40px', lineHeight: '40px', padding: '2px', borderBottom: '2px solid rgb(245, 245, 245)', marginBottom: 12}">组件库</div>
-
     <div ref="el" id="el-group">
-      <div class="item" v-for="item in dragList" :key="item.id">
-          <span class="item-text">
-            {{ item.name }}
+      <div @click="handleAdd(item)" class="item" v-for="item in menuItems" :key="item.type" :class="item.type">
+          <span class="item-text" >
+            {{ item.elementName }}
           </span>
       </div>
     </div>
@@ -13,42 +12,43 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, reactive } from "vue";
+  import { ref } from "vue";
   import { useDraggable } from 'vue-draggable-plus'
+  import { useMenuItemsStore } from '@/stores/menu-items';
+  import { storeToRefs } from 'pinia';
+  import { useElementsStore } from '@/stores/elements'
+  import { idCreator } from "@/utils";
+  import type { TMenuBaseItem } from '@/types'
   const el = ref<HTMLDivElement>();
 
-  interface itemType {
-    name: string,
-    id: number,
-    element:string
-  }
+  const { formElements, addFormElement, setSelectedElement } = useElementsStore();
 
-  const dragList: itemType[] = reactive<itemType[]>([
-    { name: "单行文本1", id: 1, element: 'Input' },
-    { name: "多行文本1", id: 2, element: 'Textarea' },
-    { name: "计数器1", id: 3, element: 'InputNumber' },
-    { name: "单选框组1", id: 4, element: 'Radio' },
-  ])
+  const { menuItems } = storeToRefs(useMenuItemsStore())
 
   // @ts-ignore
-  const draggable = useDraggable(el, dragList, {
+  useDraggable(el, menuItems, {
     animation: 150,
     sort: false,
     group: { name: 'list', pull: 'clone' },
-    onEnd() {
-      console.log('end')
-    }
   })
+
+  const handleAdd = (el: TMenuBaseItem) => {
+    const { elementName, type } = el
+    const newEl = {id: idCreator(), elementName, type}
+    addFormElement(newEl, formElements.length)
+    setSelectedElement(newEl)
+  }
 </script>
 
 <style scoped lang="less">
-   #left {
+  #left {
     width: 300px;
     height: 100%;
     background-color: white;
   }
   #el-group {
     width: 100%;
+    height: calc(100% - 40px);
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
