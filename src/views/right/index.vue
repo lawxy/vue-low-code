@@ -31,5 +31,8 @@ import ElAttr from './el-attr'
     justify-content: center;
   }
 }
+#el-attr {
+  padding: 0 20px;
+}
 
 </style>

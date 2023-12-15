@@ -1,7 +1,7 @@
 <template>
   <div id="form-wrap">
     <a-row ref="el" :gutter="[rowGap, colGap]">
-      <a-col :span="8" v-for="element in formElements" :key="element.id">
+      <a-col :span="element.gridSpan" v-for="element in formElements" :key="element.id">
           <div class="el-wrap" :style="element.id === selectedElement?.id ? 'border: 1px solid #3370ff' : ''">
             <div 
               class="mask" 
@@ -21,7 +21,7 @@ import { useDraggable } from 'vue-draggable-plus'
 import { useElementsStore } from '@/stores/elements'
 import { useFormAttrStore } from '@/stores/form-attr';
 import { storeToRefs } from 'pinia';
-import { idCreator } from '@/utils'
+import { generateNewEl } from '@/utils'
 import ElRender from './el-render.vue'
 import type { IBaseElement } from "@/types";
 
@@ -41,7 +41,7 @@ useDraggable(el, [], {
       // @ts-ignore
       const type = Array.from(item.classList).at(-1);
       const elementName = item.textContent;
-      const newEl: IBaseElement = { elementName, id: idCreator(), type }
+      const newEl: IBaseElement = generateNewEl({ elementName, type })
       addFormElement(newEl, newIndex)
       setSelectedElement(newEl)
     },

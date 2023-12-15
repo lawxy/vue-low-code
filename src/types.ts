@@ -44,15 +44,6 @@ export interface IBaseElement {
    */
   maxRows?: number;
 
-  /**
-   * 绑定表
-   */
-
-  bindTable?: string;
-  /**
-   * 绑定字段
-   */
-  bindField?: string;
 }
 
 export type TMenuBaseItem = Pick<IBaseElement, 'type' | 'elementName'>

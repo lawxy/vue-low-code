@@ -1,10 +1,10 @@
 import { defineComponent } from "vue";
 import { useElementsStore } from '@/stores/elements';
-import * as Els from '@/components/elements'
+import * as Els from '@/components/elements';
 
 export default defineComponent({
   setup() {
-    return () =>  {
+    return () => {
       // vue文件中使用storeToRefs包裹， tsx文件在setup函数中使用 自带响应式
       const { selectedElement } = useElementsStore();
       if(!selectedElement?.type) {
@@ -12,7 +12,7 @@ export default defineComponent({
       }
       // @ts-ignore
       const Component = Els[`${selectedElement.type}Setting`];
-      return <Component />
+      return <div id='el-attr'><Component /></div>
     }
      
   }

@@ -17,7 +17,7 @@
   import { useMenuItemsStore } from '@/stores/menu-items';
   import { storeToRefs } from 'pinia';
   import { useElementsStore } from '@/stores/elements'
-  import { idCreator } from "@/utils";
+  import { generateNewEl } from "@/utils";
   import type { TMenuBaseItem } from '@/types'
   const el = ref<HTMLDivElement>();
 
@@ -33,8 +33,7 @@
   })
 
   const handleAdd = (el: TMenuBaseItem) => {
-    const { elementName, type } = el
-    const newEl = {id: idCreator(), elementName, type}
+    const newEl = generateNewEl(el)
     addFormElement(newEl, formElements.length)
     setSelectedElement(newEl)
   }
