@@ -3,7 +3,7 @@
     {{ element.elementName }}
   </div>
   <div>
-    <component v-bind:is="Component" />
+    <component v-bind:is="Component" :element="element"/>
   </div>
 </template>
 

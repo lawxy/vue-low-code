@@ -12,7 +12,7 @@
   import { storeToRefs } from 'pinia'
 
   const elementsStore = useElementsStore();
-  const { setSelectedProp } = elementsStore;
+  // const { setSelectedProp } = elementsStore;
   const { selectedElement } = storeToRefs(elementsStore);
 
   // const handleChange = (e: any) => {

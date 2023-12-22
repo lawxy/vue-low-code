@@ -36,6 +36,10 @@ export interface IBaseElement {
    */
   textType?: 'single' | 'multiple';
   /**
+   * 多行是否自适应
+  */
+  autoSize?: boolean;
+  /**
    * 最小行数
    */
   minRows?: number;
