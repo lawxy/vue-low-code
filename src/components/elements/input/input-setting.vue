@@ -24,8 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import ElementSetting from '@/components/common/element-setting.vue'
-import { useElementsStore } from '@/stores/elements'
+  import ElementSetting from '@/components/common/element-setting.vue'
+  import { useElementsStore } from '@/stores/elements'
   import { storeToRefs } from 'pinia'
   const elementsStore = useElementsStore();
   const { selectedElement } = storeToRefs(elementsStore);

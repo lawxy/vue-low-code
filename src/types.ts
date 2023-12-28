@@ -5,6 +5,8 @@ export interface IEditorCanvasProp {
    */
   mode: TMode;
 }
+
+export type TDirection = 'vertical' | 'horizontal';
 export interface IBaseElement {
   /**
    * 链表形式存储父节点, 暂时没用
@@ -15,9 +17,13 @@ export interface IBaseElement {
    */
   type: string;
   /**
-   * 元素名称
+   * 元素名称（标签名称）
    */
   elementName?: string;
+  /**
+   * 元素名称（标签名称）对齐方式
+   */
+  elementNameDisplay?: TDirection;
   /**
    * 元素id
    */
@@ -47,7 +53,18 @@ export interface IBaseElement {
    * 最大行数
    */
   maxRows?: number;
-
+  /**
+   * 最小值
+   */
+  minVal?: number;
+  /**
+   * 最大值
+   */
+  maxVal?: number;
+  /**
+   * 数据类型
+  */
+  valueType?: 'int' | 'one_decimal' | 'two_decimal';
 }
 
 export type TMenuBaseItem = Pick<IBaseElement, 'type' | 'elementName'>
