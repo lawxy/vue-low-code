@@ -2,13 +2,17 @@
   import Left from '@/views/left/index.vue'
   import Canvas from '@/views/canvas/index.vue'
   import Right from '@/views/right/index.vue'
+  import zhCN from 'ant-design-vue/es/locale/zh_CN';
+
 </script>
 
 <template>
   <div id="container">
-    <Left />
-    <Canvas />
-    <Right />
+    <a-config-provider :locale="zhCN">
+      <Left />
+      <Canvas />
+      <Right />
+    </a-config-provider>
   </div>
 </template>
 
