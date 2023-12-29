@@ -5,7 +5,7 @@ export interface IEditorCanvasProp {
    */
   mode: TMode;
 }
-
+export type TOptions = { label: string; value: string | number; };
 export type TDirection = 'vertical' | 'horizontal';
 export interface IBaseElement {
   /**

@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <a-radio />
-  </div>
+  <a-radio />
 </template>
 
 <script setup lang="ts">

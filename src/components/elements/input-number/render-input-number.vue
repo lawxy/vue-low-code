@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <a-input-number 
-      :style="{width: '100%'}"
-      :min="element.minVal"
-      :max="element.maxVal"
-      :precision="precision"
-    />
-  </div>
+  <a-input-number 
+    :style="{width: '100%'}"
+    :min="element.minVal"
+    :max="element.maxVal"
+    :precision="precision"
+  />
 </template>
 
 <script setup lang="ts">

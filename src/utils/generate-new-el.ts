@@ -7,6 +7,7 @@ export const generateNewEl = <T extends IBaseElement>(attr: T) => {
     ...attr,
     id: idCreator(),
     gridSpan: 24,
+    elementNameDisplay: 'vertical',
     ...elDefaultVar[attr.type]
   }
 }

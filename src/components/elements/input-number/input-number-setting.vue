@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-  import ElementSetting from '@/components/common/element-setting.tsx'
+  import ElementSetting from '@/components/common/element-setting'
   import { useElementsStore } from '@/stores/elements'
   import { storeToRefs } from 'pinia'
   import { computed } from 'vue';

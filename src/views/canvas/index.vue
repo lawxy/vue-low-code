@@ -2,7 +2,7 @@
   <div id="form-wrap">
     <a-row ref="el" :gutter="[rowGap, colGap]">
       <a-col :span="element.gridSpan" v-for="element in formElements" :key="element.id">
-          <div class="el-wrap" :style="element.id === selectedElement?.id ? 'border: 1px solid #3370ff' : ''">
+          <div class="el-container" :style="element.id === selectedElement?.id ? 'border: 1px solid #3370ff' : ''">
             <div 
               class="mask" 
               v-show="selectedElement?.id !== element.id"
@@ -22,7 +22,7 @@ import { useElementsStore } from '@/stores/elements'
 import { useFormAttrStore } from '@/stores/form-attr';
 import { storeToRefs } from 'pinia';
 import { generateNewEl } from '@/utils'
-import ElRender from './el-render.vue'
+import ElRender from './el-render'
 import type { IBaseElement } from "@/types";
 
 const el = ref<HTMLDivElement>();
@@ -56,7 +56,7 @@ const handleSelected = (element: IBaseElement) => {
   setSelectedElement(element)
 }
 </script>
-<style scoped lang="less">
+<style lang="less">
 #form-wrap {
   flex: 1;
   margin: 0 10px;
@@ -68,33 +68,35 @@ const handleSelected = (element: IBaseElement) => {
     height: 100%;
     align-content: flex-start;
   }
+  .el-container {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: rgb(242,246,255);
+    padding: 8px;
+    cursor: move;
+    position: relative;
+    &:hover {
+        border: 1px dashed #3370ff;
+      }
+  }
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .el-render-laybout {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .el-render-wrap {
+    flex: 1;
+  }
 }
-
-.el-wrap {
-  border: 1px solid transparent;
-  border-radius: 4px;
-  background-color: rgb(242,246,255);
-  padding: 8px;
-  cursor: move;
-  position: relative;
-  &:hover {
-      border: 1px dashed #3370ff;
-    }
-}
-.mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  // margin: 'auto';
-  // padding: `${vertical / 2}px ${horizontal / 2}px`;
-  // margin: `-${vertical / 2}px -${horizontal / 2}px`;
-  z-index: 10;
-  cursor: pointer;
-}
-
-
 
 
 </style>

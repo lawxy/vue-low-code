@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <a-input v-if="element.textType === 'single'"></a-input>
-    <a-textarea 
-      v-else 
-      :key="key"
-      :auto-size="element.autoSize ? true : { minRows: element.minRows, maxRows: element.maxRows }" />
-  </div>
+  <a-input v-if="element.textType === 'single'"></a-input>
+  <a-textarea 
+    v-else 
+    :key="key"
+    :auto-size="element.autoSize ? true : { minRows: element.minRows, maxRows: element.maxRows }" />
 </template>
 
 <script setup lang="ts">
