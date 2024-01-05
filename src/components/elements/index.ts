@@ -6,6 +6,7 @@ import RenderInputNumber from './input-number/render-input-number.vue';
 import InputNumberVar from './input-number/const';
 import RadioSetting from './radio/radio-setting.vue';
 import RenderRadio from './radio/render-radio.vue';
+import RadioVar from './radio/const';
 
 
 export {
@@ -17,4 +18,4 @@ export {
   RenderRadio,
   
 }
-export const elDefaultVar: Record<string, Record<string, any>> = {'Input': InputVar,'InputNumber': InputNumberVar,}
+export const elDefaultVar: Record<string, Record<string, any>> = {'Input': InputVar,'InputNumber': InputNumberVar,'Radio': RadioVar,}

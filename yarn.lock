@@ -22,12 +22,27 @@
   dependencies:
     "@ctrl/tinycolor" "^3.4.0"
 
+"@ant-design/colors@^7.0.0":
+  version "7.0.2"
+  resolved "https://npm.zhichidata.com/@ant-design%2fcolors/-/colors-7.0.2.tgz#c5c753a467ce8d86ba7ca4736d2c01f599bb5492"
+  integrity sha512-7KJkhTiPiLHSu+LmMJnehfJ6242OCxSlR3xHVBecYxnMW8MS/878NXct1GqYARyL59fyeFdKRxXTfvR9SnDgJg==
+  dependencies:
+    "@ctrl/tinycolor" "^3.6.1"
+
 "@ant-design/icons-svg@^4.2.1":
   version "4.3.1"
   resolved "https://npm.zhichidata.com/@ant-design%2ficons-svg/-/icons-svg-4.3.1.tgz#4b2f65a17d4d32b526baa6414aca2117382bf8da"
   integrity sha512-4QBZg8ccyC6LPIRii7A0bZUk3+lEDCLnhB+FVsflGdcWPPmV+j3fire4AwwoqHV/BibgvBmR9ZIo4s867smv+g==
 
-"@ant-design/icons-vue@^7.0.0":
+"@ant-design/icons-vue@^6.0.1":
+  version "6.1.0"
+  resolved "https://npm.zhichidata.com/@ant-design%2ficons-vue/-/icons-vue-6.1.0.tgz#f9324fdc0eb4cea943cf626d2bf3db9a4ff4c074"
+  integrity sha512-EX6bYm56V+ZrKN7+3MT/ubDkvJ5rK/O2t380WFRflDcVFgsvl3NLH7Wxeau6R8DbrO5jWR6DSTC3B6gYFp77AA==
+  dependencies:
+    "@ant-design/colors" "^6.0.0"
+    "@ant-design/icons-svg" "^4.2.1"
+
+"@ant-design/icons-vue@^7.0.0", "@ant-design/icons-vue@^7.0.1":
   version "7.0.1"
   resolved "https://npm.zhichidata.com/@ant-design%2ficons-vue/-/icons-vue-7.0.1.tgz#83de301771fadd03f3890e627314102405c31c22"
   integrity sha512-eCqY2unfZK6Fe02AwFlDHLfoyEFreP6rBwAZMIJ1LugmfMiVgwWDYlp1YsRugaPtICYOabV1iWxXdP12u9U43Q==
@@ -307,7 +322,7 @@
     "@babel/helper-validator-identifier" "^7.22.19"
     to-fast-properties "^2.0.0"
 
-"@ctrl/tinycolor@^3.4.0", "@ctrl/tinycolor@^3.5.0":
+"@ctrl/tinycolor@^3.4.0", "@ctrl/tinycolor@^3.5.0", "@ctrl/tinycolor@^3.6.1":
   version "3.6.1"
   resolved "https://npm.zhichidata.com/@ctrl%2ftinycolor/-/tinycolor-3.6.1.tgz#b6c75a56a1947cc916ea058772d666a2c8932f31"
   integrity sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==
@@ -570,6 +585,17 @@
     core-js "^3.15.1"
     nanopop "^2.1.0"
 
+"@surely-vue/table@^4.2.7":
+  version "4.2.7"
+  resolved "https://npm.zhichidata.com/@surely-vue%2ftable/-/table-4.2.7.tgz#6ace465be0eb44c0ebdeb1dd27fb527f4c58bc5a"
+  integrity sha512-hBKCgNpSsq/uahyDlP+xrnDVEQzSjVIQ/LKnFDpj2oxOs0yC9mPAJt/AAoVZb5miXDFfmDp8p1z/oI1cAxelCw==
+  dependencies:
+    "@ant-design/colors" "^7.0.0"
+    "@ant-design/icons-vue" "^6.0.1"
+    ant-design-vue "^3.0.0 || ^4.0.0"
+    lodash-es "^4.17.21"
+    resize-observer-polyfill "^1.5.1"
+
 "@tsconfig/node18@^18.2.2":
   version "18.2.2"
   resolved "https://npm.zhichidata.com/@tsconfig%2fnode18/-/node18-18.2.2.tgz#81fb16ecff0d400b1cbadbf76713b50f331029ce"
@@ -584,6 +610,18 @@
   version "7.0.13"
   resolved "https://npm.zhichidata.com/@types%2fjson-schema/-/json-schema-7.0.13.tgz#02c24f4363176d2d18fc8b70b9f3c54aba178a85"
   integrity sha512-RbSSoHliUbnXj3ny0CNFOoxrIDV6SUGyStHsvDqosw6CkdPV8TtWGlfecuK4ToyMEAql6pzNxgCFKanovUzlgQ==
+
+"@types/lodash-es@^4.17.12":
+  version "4.17.12"
+  resolved "https://npm.zhichidata.com/@types%2flodash-es/-/lodash-es-4.17.12.tgz#65f6d1e5f80539aa7cfbfc962de5def0cf4f341b"
+  integrity sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  version "4.14.202"
+  resolved "https://npm.zhichidata.com/@types%2flodash/-/lodash-4.14.202.tgz#f09dbd2fb082d507178b2f2a5c7e74bd72ff98f8"
+  integrity sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==
 
 "@types/node@^18.17.17":
   version "18.17.18"
@@ -927,6 +965,34 @@ ant-design-vue@4.x:
   version "4.0.6"
   resolved "https://npm.zhichidata.com/ant-design-vue/-/ant-design-vue-4.0.6.tgz#308ded25f4ee7e4582dccad4594aee4a000abe2d"
   integrity sha512-6kh3b8Ito9SAbOKTW0wyfcCnd859uhQQlttjo8RjMj6YjLK52yNO2TdgYRwed06scUm5RwEnQ2JKMxYYoeG1MA==
+  dependencies:
+    "@ant-design/colors" "^6.0.0"
+    "@ant-design/icons-vue" "^7.0.0"
+    "@babel/runtime" "^7.10.5"
+    "@ctrl/tinycolor" "^3.5.0"
+    "@emotion/hash" "^0.9.0"
+    "@emotion/unitless" "^0.8.0"
+    "@simonwep/pickr" "~1.8.0"
+    array-tree-filter "^2.1.0"
+    async-validator "^4.0.0"
+    csstype "^3.1.1"
+    dayjs "^1.10.5"
+    dom-align "^1.12.1"
+    dom-scroll-into-view "^2.0.0"
+    lodash "^4.17.21"
+    lodash-es "^4.17.15"
+    resize-observer-polyfill "^1.5.1"
+    scroll-into-view-if-needed "^2.2.25"
+    shallow-equal "^1.0.0"
+    stylis "^4.1.3"
+    throttle-debounce "^5.0.0"
+    vue-types "^3.0.0"
+    warning "^4.0.0"
+
+"ant-design-vue@^3.0.0 || ^4.0.0":
+  version "4.0.8"
+  resolved "https://npm.zhichidata.com/ant-design-vue/-/ant-design-vue-4.0.8.tgz#fa86910c6c3afa3ad49224b51c76ef1fa0589366"
+  integrity sha512-SyPgbiPqxgXWHywxcstJN+j9N6PoZf6y5Gvvdbb+9od+uizmh2A+TnXmIHVJ44D1V1+YjXPz1EpLfIpxqDqu9A==
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@ant-design/icons-vue" "^7.0.0"
@@ -1922,7 +1988,7 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash-es@^4.17.15:
+lodash-es@^4.17.15, lodash-es@^4.17.21:
   version "4.17.21"
   resolved "https://npm.zhichidata.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha1-Q+YmxG5lkbd1C+srUBFzkMYJ4+4=

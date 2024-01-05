@@ -15,7 +15,7 @@ export interface IBaseElement {
   /**
    * 元素类型
    */
-  type: string;
+  type?: string;
   /**
    * 元素名称（标签名称）
    */
@@ -65,6 +65,10 @@ export interface IBaseElement {
    * 数据类型
   */
   valueType?: 'int' | 'one_decimal' | 'two_decimal';
+  /**
+   * 选项
+  */
+  valueOptions?: TOptions[];
 }
 
 export type TMenuBaseItem = Pick<IBaseElement, 'type' | 'elementName'>

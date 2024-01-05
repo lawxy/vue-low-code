@@ -9,7 +9,7 @@
         v-model:open="visible"
         title="选项设置"
       >
-        <div>123</div>
+        <BatchGenerateOptions />
       </a-modal>
     </template>
   </ElementSetting>
@@ -18,7 +18,8 @@
 <script setup lang="ts">
   import ElementSetting from '@/components/common/element-setting'
   import { ref } from 'vue';
-  const visible = ref(false);
+  import BatchGenerateOptions from '@/components/common/batch-generate-options.vue';
+  const visible = ref(true);
 
   const showModal = () => visible.value = true;
 </script>
