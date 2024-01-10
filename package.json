@@ -13,9 +13,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@ant-design/icons-vue": "^7.0.1",
-    "ant-design-vue": "4.x",
     "axios": "^1.6.2",
+    "element-plus": "^2.4.4",
     "lodash-es": "^4.17.21",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",

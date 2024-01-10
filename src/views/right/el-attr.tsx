@@ -12,7 +12,7 @@ export default defineComponent({
       }
       // @ts-ignore
       const Component = Els[`${selectedElement.type}Setting`];
-      return <div id='el-attr'><a-form labelCol={{style: { width: '80px' }}}><Component /></a-form></div>
+      return <div id='el-attr'><el-form label-width="100px" ><Component /></el-form></div>
     }
      
   }

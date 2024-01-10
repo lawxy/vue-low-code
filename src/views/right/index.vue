@@ -1,13 +1,13 @@
 <template>
   <div id="form-setting">
-    <a-tabs class="form-setting-tab">
-      <a-tab-pane key="1" tab="组件属性">
+    <el-tabs class="form-setting-tab">
+      <el-tab-pane key="1" label="组件属性">
         <ElAttr />
-      </a-tab-pane>
-      <a-tab-pane key="2" tab="表单属性">
+      </el-tab-pane>
+      <el-tab-pane key="2" label="表单属性">
         <FormAttr />
-      </a-tab-pane>
-    </a-tabs>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 <script setup lang="ts">
@@ -21,14 +21,11 @@ import ElAttr from './el-attr'
   background-color: #fff;
   height: 100%;
   padding: 2px;
-  
-  .ant-tabs-nav-list{
+  .el-tabs__nav {
     width: 100%;
   }
-  .ant-tabs-tab {
+  .el-tabs__item {
     width: 50%;
-    margin: 0;
-    justify-content: center;
   }
 }
 #el-attr {

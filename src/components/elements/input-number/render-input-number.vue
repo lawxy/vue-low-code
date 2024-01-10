@@ -1,5 +1,5 @@
 <template>
-  <a-input-number 
+  <el-input-number 
     :style="{width: '100%'}"
     :min="element.minVal"
     :max="element.maxVal"

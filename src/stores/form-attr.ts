@@ -3,20 +3,20 @@ import { defineStore } from 'pinia'
 import type { TMenuBaseItem } from '@/types';
 
 export const useFormAttrStore = defineStore('formAttrStore', () => {
-  const rowGap = ref<number>(8);
-  const colGap = ref<number>(8);
+  const verticalGap = ref<number>(8);
+  const horizontalGap = ref<number>(8);
 
   const setRowGap = (n: number) => {
-    rowGap.value = n
+    verticalGap.value = n
   }
   
   const setColGap = (n: number) => {
-    colGap.value = n
+    horizontalGap.value = n
   }
 
   return { 
-    rowGap, 
-    colGap,
+    verticalGap, 
+    horizontalGap,
     setRowGap,
     setColGap
   }

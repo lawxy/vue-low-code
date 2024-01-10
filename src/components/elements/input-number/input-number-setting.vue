@@ -1,27 +1,27 @@
 <template>
   <ElementSetting>
     <template #other>
-      <a-form-item label="数据类型">
-        <a-select
+      <el-form-item label="数据类型">
+        <el-select
           v-model:value="selectedElement!.valueType"
         >
-          <a-select-option v-for="item of valueTypeOptions" :value="item.value">{{ item.label }}</a-select-option>
-        </a-select>
-      </a-form-item>
-      <a-form-item label="最小值">
-        <a-input-number 
+          <el-option v-for="item of valueTypeOptions" :value="item.value">{{ item.label }}</el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="最小值">
+        <el-input-number 
           :max="selectedElement!.maxVal" 
           v-model:value="selectedElement!.minVal"
           :precision="precision"
         />
-      </a-form-item>
-      <a-form-item label="最大值">
-        <a-input-number 
+      </el-form-item>
+      <el-form-item label="最大值">
+        <el-input-number 
           :min="selectedElement!.minVal" 
           v-model:value="selectedElement!.maxVal"
           :precision="precision"
         />
-      </a-form-item>
+      </el-form-item>
     </template>
   </ElementSetting>
 </template>

@@ -1,7 +1,11 @@
 <template>
   <div id="form-wrap">
-    <a-row ref="el" :gutter="[rowGap, colGap]">
-      <a-col :span="element.gridSpan" v-for="element in formElements" :key="element.id">
+    <el-row 
+      ref="el" 
+      :gutter="horizontalGap"
+      :style="{rowGap: `${verticalGap}px`}"
+    >
+      <el-col :span="element.gridSpan" v-for="element in formElements" :key="element.id">
           <div class="el-container" :style="element.id === selectedElement?.id ? 'border: 1px solid #3370ff' : ''">
             <div 
               class="mask" 
@@ -10,8 +14,8 @@
             />
             <ElRender :element="element"/>
           </div>
-        </a-col>
-    </a-row>
+        </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -30,7 +34,7 @@ const el = ref<HTMLDivElement>();
 const elementsStore = useElementsStore();
 const { setSelectedElement, addFormElement, moveElement } = elementsStore;
 const { formElements, selectedElement } = storeToRefs(elementsStore);
-const { rowGap, colGap } = storeToRefs(useFormAttrStore())
+const { verticalGap, horizontalGap } = storeToRefs(useFormAttrStore())
 
 // @ts-ignore
 useDraggable(el, [], {
@@ -64,10 +68,7 @@ const handleSelected = (element: IBaseElement) => {
   background-color: #fff;
   padding: 8px;
   box-sizing: border-box;
-  .ant-row {
-    height: 100%;
-    align-content: flex-start;
-  }
+
   .el-container {
     border: 1px solid transparent;
     border-radius: 4px;
@@ -92,6 +93,7 @@ const handleSelected = (element: IBaseElement) => {
     display: flex;
     gap: 8px;
     align-items: center;
+    width: 100%;
   }
   .el-render-wrap {
     flex: 1;

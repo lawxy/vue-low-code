@@ -1,16 +1,16 @@
 <template>
   <ElementSetting>
     <template #other>
-      <a-form-item class="option-setting" label="选项">
-        <a-button size="small" @click="showModal">编辑</a-button>
-      </a-form-item>
+      <el-form-item class="option-setting" label="选项">
+        <el-button size="small" @click="showModal">编辑</el-button>
+      </el-form-item>
 
-      <a-modal 
-        v-model:open="visible"
+      <el-dialog 
+        v-model="visible"
         title="选项设置"
       >
         <BatchGenerateOptions />
-      </a-modal>
+      </el-dialog>
     </template>
   </ElementSetting>
 </template>
@@ -25,9 +25,5 @@
 </script>
 
 <style scoped lang="less">
-  .option-setting {
-    :deep(.ant-col){
-      flex-direction: row-reverse;
-    }
-  }
+
 </style>

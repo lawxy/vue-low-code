@@ -1,23 +1,23 @@
 <template>
   <ElementSetting>
     <template #other>
-      <a-form-item label="文本类型">
-        <a-select
-          v-model:value="selectedElement!.textType"
+      <el-form-item label="文本类型">
+        <el-select
+          v-model="selectedElement!.textType"
         >
-          <a-select-option v-for="item of options" :value="item.value">{{ item.label }}</a-select-option>
-        </a-select>
-      </a-form-item>
+          <el-option v-for="item of options" :value="item.value" :label="item.label"/>
+        </el-select>
+      </el-form-item>
       <template v-if="selectedElement?.textType === 'multiple'">
-        <a-form-item label="自适应行数">
-          <a-switch v-model:checked="selectedElement!.autoSize"/>
-        </a-form-item>
-        <a-form-item v-if="!selectedElement.autoSize" label="最小行数">
-          <a-input-number v-model:value="selectedElement!.minRows" :min="1" :max="selectedElement!.maxRows"/>
-        </a-form-item>
-        <a-form-item v-if="!selectedElement.autoSize" label="最大行数">
-          <a-input-number v-model:value="selectedElement!.maxRows" :min="selectedElement!.minRows"/>
-        </a-form-item>
+        <el-form-item label="自适应行数">
+          <el-switch v-model="selectedElement!.autoSize"/>
+        </el-form-item>
+        <el-form-item v-if="!selectedElement.autoSize" label="最小行数">
+          <el-input-number v-model="selectedElement!.minRows" :min="1" :max="selectedElement!.maxRows"/>
+        </el-form-item>
+        <el-form-item v-if="!selectedElement.autoSize" label="最大行数">
+          <el-input-number v-model="selectedElement!.maxRows" :min="selectedElement!.minRows"/>
+        </el-form-item>
       </template>
     </template>
   </ElementSetting>

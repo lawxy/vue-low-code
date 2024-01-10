@@ -1,5 +1,5 @@
 <template>
-  <a-radio />
+  <el-radio />
 </template>
 
 <script setup lang="ts">

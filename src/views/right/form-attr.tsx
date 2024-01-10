@@ -6,20 +6,20 @@ export default defineComponent({
   setup(){
     const formStore = useFormAttrStore()
     const { setRowGap, setColGap } = formStore;
-    const { rowGap, colGap } = storeToRefs(formStore)
+    const { verticalGap, horizontalGap } = storeToRefs(formStore)
     return () => (
-      <a-form label-col={{style:{ width: '100px' }}} wrapper-col={{ span: 14 }}>
+      <el-form label-width='100px' >
         <div class='setting-item'>
-          <a-form-item label='水平间隔'>
-            <a-input-number min='0' value={+rowGap.value} onChange={setRowGap}/>
-          </a-form-item>
+          <el-form-item label='水平间隔'>
+            <el-input-number min={0} modelValue={+verticalGap.value} onChange={setRowGap}/>
+          </el-form-item>
         </div>
         <div class='setting-item'>
-          <a-form-item label='垂直间隔'>
-            <a-input-number min='0' value={+colGap.value} onChange={setColGap}/>
-          </a-form-item>
+          <el-form-item label='垂直间隔'>
+            <el-input-number min={0} modelValue={+horizontalGap.value} onChange={setColGap}/>
+          </el-form-item>
         </div>
-      </a-form>
+      </el-form>
     )
   }
 })

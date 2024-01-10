@@ -1,52 +1,66 @@
 <template>
   <div class="batchBtn">
-    <a-button size="small">批量编辑</a-button>
+    <el-button size="small" plain>批量编辑</el-button>
   </div>
-  <!-- <div
-    ref="table"
-  > -->
-    <a-table 
-      :columns='columns' 
-      :dataSource='tempOptions'
-      :pagination="false"
-      :scroll="{y: 300}"
-     
-    > 
-    <template #bodyCell="{ column, record, index }">
-      <div v-if="column.key === 'action'">
-        <span class="optbtn minusBtn">
-          <MinusCircleOutlined :style="{fontSize: '16px', color: '#F56C6C'}"/>
-        </span>
-        <span 
-          v-if="index === tempOptions.length - 1" 
-          class="optbtn" 
-          @click="handleAddItem(index)"
-        >
-          <PlusCircleOutlined :style="{fontSize: '16px', color: '#409EFF'}"/>
-        </span>
-      </div>
-      <div v-else>
-        <a-input v-model:value="record[column.key]"></a-input>
-      </div>
-    </template>
-  
-    </a-table>
-  <!-- </div> -->
+  <VueDraggable 
+    :model-value="tempOptions" 
+    target="tbody" 
+    animation="150"  
+    handle=".sortbtn"
+    @update="onUpdate"
+  >
+    <el-table :data="tempOptions">
+      <el-table-column label="" width="30">
+        <template #default="scope">
+          <div class="sortbtn">
+            <svg viewBox="64 64 896 896" focusable="false" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path></svg>
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column prop="label" label="属性">
+        <template #default="scope">
+          <el-input v-model="scope.row.label"></el-input>
+        </template>
+      </el-table-column>
+      <el-table-column prop="value" label="值">
+        <template #default="scope">
+          <el-input  v-model="scope.row.value"></el-input>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="80">
+        <template #default="scope">
+          <span 
+            class="optbtn minusBtn"
+            @click="handleRemoveItem(scope.$index)"
+          >
+            <!-- <MinusCircleOutlined :style="{fontSize: '16px', color: '#F56C6C'}"/> -->
+            minus
+          </span>
+          <span 
+            class="optbtn" 
+            @click="handleAddItem"
+            v-if="tempOptions.length - 1 === scope.$index" 
+          >
+          plus
+            <!-- <PlusCircleOutlined :style="{fontSize: '16px', color: '#409EFF'}"/> -->
+          </span>
+        </template>
+      </el-table-column>
+    </el-table>
+  </VueDraggable>
 </template>
 
 <script setup lang="ts">
   import { useElementsStore } from '@/stores/elements';
-  import { ref, watch } from 'vue';
-  import { PlusCircleOutlined, MinusCircleOutlined } from '@ant-design/icons-vue';
+  import { ref, computed, watch } from 'vue';
   import { cloneDeep } from 'lodash-es'
+  import { VueDraggable } from 'vue-draggable-plus'
 
   const elementsStore = useElementsStore();
   const { selectedElement, setSelectedProp } = elementsStore;
 
   const tempOptions = ref(cloneDeep(selectedElement!.valueOptions || []));
 
-  console.log('selectedElement', selectedElement)
-  
   const columns = [
     {
       title: '选项',
@@ -63,13 +77,32 @@
     },
   ];
 
-  const handleAddItem = (index: number) => {
-    tempOptions.splice(index + 1, 0, { label: '', value: '' })
+  const handleAddItem = () => {
+    tempOptions.value.push({ label: '', value: '', id: String(+new Date()) })
+  }
+  
+  const handleRemoveItem = (index: number) => {
+    // console.log('length', tempOptions.value.length)
+    // console.log('index', index)
+    // console.log('empOptions.value', tempOptions.value)
+    if(tempOptions.value.length === 1) {
+      tempOptions.value = [{label: '', value: ''}]
+      return;
+    }
+    tempOptions.value.splice(index, 1);
   }
 
-  // const table = ref();
-  // const tbody = table?.value?.querySelector('.ant-table-tbody')
-  // console.log('tbody', table)
+  const onUpdate = (e: any) => {
+    const { newIndex, oldIndex } = e
+    // console.log(e)
+    const [el] = tempOptions.value.splice(oldIndex, 1);
+    tempOptions.value.splice(newIndex, 0, el);
+  }
+  watch(tempOptions.value, (val) => {
+    console.log('tempOptions')
+    console.log(tempOptions.value)
+  })
+ 
 </script>
 
 <style lang="less" scoped>
@@ -83,5 +116,8 @@
   }
   .minusBtn {
     margin-right: 8px;
+  }
+  .sortbtn {
+    cursor: move;
   }
 </style>
