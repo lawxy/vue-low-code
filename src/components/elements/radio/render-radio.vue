@@ -1,5 +1,12 @@
 <template>
-  <el-radio />
+  <el-radio-group >
+    <el-radio 
+      v-for="item in element.valueOptions"
+      :label="item.value"
+    >
+      {{ item.label }}
+    </el-radio>
+  </el-radio-group>
 </template>
 
 <script setup lang="ts">

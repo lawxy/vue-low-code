@@ -29,7 +29,7 @@ import ElAttr from './el-attr'
   }
 }
 #el-attr {
-  padding: 0 20px;
+  padding-right: 12px;
 }
 
 </style>

@@ -1,29 +1,17 @@
 <template>
   <ElementSetting>
     <template #other>
-      <el-form-item class="option-setting" label="选项">
-        <el-button size="small" @click="showModal">编辑</el-button>
-      </el-form-item>
-
-      <el-dialog 
-        v-model="visible"
-        title="选项设置"
-      >
-        <BatchGenerateOptions />
-      </el-dialog>
+      <OptionSetting :element="selectedElement"/>   
     </template>
   </ElementSetting>
 </template>
 
+
 <script setup lang="ts">
   import ElementSetting from '@/components/common/element-setting'
-  import { ref } from 'vue';
-  import BatchGenerateOptions from '@/components/common/batch-generate-options.vue';
-  const visible = ref(true);
-
-  const showModal = () => visible.value = true;
+  import OptionSetting from '@/components/common/option-setting/index.vue'
+  import { useElementsStore } from '@/stores/elements'
+  import { storeToRefs } from 'pinia'
+  const elementsStore = useElementsStore();
+  const { selectedElement } = storeToRefs(elementsStore);
 </script>
-
-<style scoped lang="less">
-
-</style>
